@@ -1,4 +1,4 @@
-on boot
+on early-fs
     write /sys/class/android_usb/android0/f_acm/instances 1
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
     write /sys/class/android_usb/android0/f_rndis/manufacturer Samsung
