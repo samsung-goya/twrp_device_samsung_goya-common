@@ -43,9 +43,7 @@ on init
     mkdir /mep2
     mkdir /efs
     mkdir /dtim
-    mkdir /loke1st
-    mkdir /loke2nd
-    mkdir /param
+    mkdir /bootloader
     mkdir /recovery
     mkdir /boot
     mkdir /radio
