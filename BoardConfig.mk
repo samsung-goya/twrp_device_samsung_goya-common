@@ -10,6 +10,7 @@ TARGET_CPU_SMP               := true
 TARGET_SOC                   := pxa988
 ARCH_ARM_HAVE_TLS_REGISTER   := true
 ARCH_ARM_HAVE_NEON           := true
+TARGET_FORCE_CPU_UPLOAD      := true
 TARGET_BOOTLOADER_BOARD_NAME := goya
 BOARD_VENDOR                 := samsung
 
@@ -17,9 +18,11 @@ TARGET_GLOBAL_CFLAGS   += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 
 
-# U-boot
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
+# Samsung Bootloader
+TARGET_NO_BOOTLOADER    := true
+TARGET_NO_RADIOIMAGE    := true
+TW_NO_REBOOT_BOOTLOADER := true
+TW_HAS_DOWNLOAD_MODE    := true
 
 
 # Kernel
@@ -36,78 +39,65 @@ BOARD_CUSTOM_BOOTIMG_MK  := device/samsung/goya/mkbootimg.mk
 BOARD_KERNEL_PAGESIZE    := 2048
 
 
-# Partitions
+# Partitions & Filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
 BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 1594884096
 BOARD_CACHEIMAGE_PARTITION_SIZE    := 360710144
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 5509218304
 BOARD_FLASH_BLOCK_SIZE             := 4096
+
 TARGET_USERIMAGES_USE_EXT4         := true
+TARGET_RECOVERY_FSTAB              := device/samsung/goya/recovery.fstab
+RECOVERY_FSTAB_VERSION             := 2
 BOARD_HAS_NO_MISC_PARTITION        := true
+RECOVERY_SDCARD_ON_DATA            := false
+
+BOARD_HAS_LARGE_FILESYSTEM         := true
+BOARD_USES_MMCUTILS                := true
+
+TW_INTERNAL_STORAGE_PATH           := "/sdcard"
+TW_INTERNAL_STORAGE_MOUNT_POINT    := "sdcard"
+TW_EXTERNAL_STORAGE_PATH           := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT    := "external_sd"
+BOARD_HAS_NO_REAL_SDCARD           := true
+
+TW_INCLUDE_FUSE_EXFAT              := true
+TW_INCLUDE_CRYPTO                  := false
+TW_EXCLUDE_ENCRYPTED_BACKUPS       := true
 
 
-# Update OTA
+# OTA
 BLOCK_BASED_OTA := false
+TARGET_OTA_ASSERT_DEVICE := goyawifi,goyawifiue,goyawifixx,goyawifixxx,goyawifizc,goyawifizs,goyawifi,goya3g,goya3gxx,goya3gzc,goya3gdv,goya3gub
 
 
-# Assert
-TARGET_OTA_ASSERT_DEVICE   := goya,goyawifi,goya3g
-BOARD_HAS_NO_SELECT_BUTTON := true
-
-
-# TWRP
-BOARD_USES_MMCUTILS        := true
-BOARD_HAS_LARGE_FILESYSTEM := true
-BOARD_RECOVERY_SWIPE       := true
-RECOVERY_FSTAB_VERSION     := 2
-TARGET_RECOVERY_FSTAB      := device/samsung/goya/recovery.fstab
+# USB
 BOARD_UMS_LUNFILE          := "/sys/class/android_usb/f_mass_storage/lun/file"
 TW_MTP_DEVICE              := "/dev/usb_mtp_gadget"
 
-TW_THEME                     := landscape_hdpi
-TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 
-TARGET_RECOVERY_INITRC := device/samsung/goya/recovery/root/init.rc
-
-RECOVERY_GRAPHICS_FORCE_SINGLE_BUFFER := true
-RECOVERY_GRAPHICS_USE_LINELENGTH      := true
-
-TW_NO_REBOOT_BOOTLOADER := true
-TW_HAS_DOWNLOAD_MODE    := true
-
-TW_INTERNAL_STORAGE_PATH        := "/sdcard"
-TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
-TW_EXTERNAL_STORAGE_PATH        := "/external_sd"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
-BOARD_HAS_NO_REAL_SDCARD        := true
-SP1_NAME                        := "efs"
-SP1_BACKUP_METHOD               := files
-
-TW_EXCLUDE_TWRPAPP           := true
-TW_USE_TOOLBOX               := false
-TW_INCLUDE_FUSE_EXFAT        := true
-TW_INCLUDE_CRYPTO            := false
-TW_EXCLUDE_ENCRYPTED_BACKUPS := true
-TW_NO_CPU_TEMP               := true
-TW_NO_HAPTICS                := true
-TW_EXTRA_LANGUAGES           := true
-
-RECOVERY_SDCARD_ON_DATA := false
-
-
-# MRVL hardware + Graphics
+# MRVL Hardware
 BOARD_USES_MRVL_HARDWARE          := true
 MRVL_ION                          := true
 MRVL_INTERFACE_ANIMATION          := true
-TARGET_FORCE_CPU_UPLOAD           := true
-USE_OPENGL_RENDERER               := true
-BOARD_USE_BGRA_8888               := true
-BOARD_HAVE_PIXEL_FORMAT_INFO      := true
 BOARD_USE_VIVANTE_GRALLOC         := true
 MRVL_LAUNCH_DMS_IN_SURFACEFLINGER := true
 
 
-# Resolution
-TARGET_SCREEN_HEIGHT := 1024
-TARGET_SCREEN_WIDTH  := 600
+# Graphics
+USE_OPENGL_RENDERER          := true
+TW_THEME                     := landscape_hdpi
+TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+BOARD_USE_BGRA_8888          := true
+TARGET_SCREEN_HEIGHT         := 1024
+TARGET_SCREEN_WIDTH          := 600
+
+
+# TWRP
+TARGET_RECOVERY_INITRC := device/samsung/goya/recovery/root/init.rc
+TW_EXCLUDE_TWRPAPP     := true
+TW_USE_TOOLBOX         := false
+TW_NO_CPU_TEMP         := true
+TW_NO_HAPTICS          := true
+TW_EXTRA_LANGUAGES     := true
