@@ -56,25 +56,25 @@ RECOVERY_SDCARD_ON_DATA            := false
 BOARD_HAS_LARGE_FILESYSTEM         := true
 BOARD_USES_MMCUTILS                := true
 
-TW_INTERNAL_STORAGE_PATH           := "/sdcard"
-TW_INTERNAL_STORAGE_MOUNT_POINT    := "sdcard"
-TW_EXTERNAL_STORAGE_PATH           := "/external_sd"
-TW_EXTERNAL_STORAGE_MOUNT_POINT    := "external_sd"
-BOARD_HAS_NO_REAL_SDCARD           := true
+TW_INTERNAL_STORAGE_PATH        := "/sdcard"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+TW_EXTERNAL_STORAGE_PATH        := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+BOARD_HAS_NO_REAL_SDCARD        := true
 
-TW_INCLUDE_FUSE_EXFAT              := true
-TW_INCLUDE_CRYPTO                  := false
-TW_EXCLUDE_ENCRYPTED_BACKUPS       := true
+TW_INCLUDE_FUSE_EXFAT        := true
+TW_INCLUDE_CRYPTO            := false
+TW_EXCLUDE_ENCRYPTED_BACKUPS := true
 
 
 # OTA
-BLOCK_BASED_OTA := false
+BLOCK_BASED_OTA          := false
 TARGET_OTA_ASSERT_DEVICE := goyawifi,goyawifiue,goyawifixx,goyawifixxx,goyawifizc,goyawifizs,goyawifi,goya3g,goya3gxx,goya3gzc,goya3gdv,goya3gub
 
 
 # USB
-BOARD_UMS_LUNFILE          := "/sys/class/android_usb/f_mass_storage/lun/file"
-TW_MTP_DEVICE              := "/dev/usb_mtp_gadget"
+BOARD_UMS_LUNFILE := "/sys/class/android_usb/f_mass_storage/lun/file"
+TW_MTP_DEVICE     := "/dev/usb_mtp_gadget"
 
 
 # MRVL Hardware
