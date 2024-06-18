@@ -1,17 +1,17 @@
 # mount point    fstype    device    [device2]
 
-/mrd             emmc      /dev/block/mmcblk0p1      flags=backup=1;display="MRD"
+/mrd             emmc      /dev/block/mmcblk0p1      flags=backup=1
 /mrd1            emmc      /dev/block/mmcblk0p2      flags=backup=1;subpartitionof=/mrd
-/mep2            emmc      /dev/block/mmcblk0p3      flags=backup=1;display="MEP2"
-/efs             ext4      /dev/block/mmcblk0p4      flags=backup=1;display="EFS"
-/dtim            emmc      /dev/block/mmcblk0p5      flags=backup=1;display="DTIM"
+/mep2            emmc      /dev/block/mmcblk0p3      flags=backup=1
+/efs             ext4      /dev/block/mmcblk0p4      flags=backup=1
+/dtim            emmc      /dev/block/mmcblk0p5      flags=backup=1
 /bootloader      emmc      /dev/block/mmcblk0p8      flags=backup=1;display="Bootloader"
 /recovery        emmc      /dev/block/mmcblk0p9      flags=backup=1;display="Recovery";flashimg=1
 /boot            emmc      /dev/block/mmcblk0p10     flags=backup=1;display="Boot";flashimg=1
 /radio           emmc      /dev/block/mmcblk0p11     flags=backup=1;display="Radio"
 /custom          ext4      /dev/block/mmcblk0p12     flags=backup=1;display="Custom"
-/preload         ext4      /dev/block/mmcblk0p13     flags=backup=1;display="Preload";wipeingui
+/preload         ext4      /dev/block/mmcblk0p13     flags=backup=1;wipeingui
 /cache           ext4      /dev/block/mmcblk0p14     flags=backup=1;display="Cache";canbewiped;wipeingui;wipeduringfactoryreset
 /system          ext4      /dev/block/mmcblk0p15     flags=backup=1;display="System";canbewiped;wipeingui
 /data            ext4      /dev/block/mmcblk0p16     flags=backup=1;length=-16384;display="Data";canbewiped;wipeingui;wipeduringfactoryreset
-/external_sd     vfat      /dev/block/mmcblk1p1      flags=display="Micro SDcard";storage;wipeingui;removable
+/external_sd     vfat      /dev/block/mmcblk1p1      flags=display="microSD Card";storage;wipeingui;removable
