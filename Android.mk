@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter goya3g goyawifi,$(TARGET_DEVICE)),)
+ifneq ($(filter goyawifi,$(TARGET_DEVICE)),)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 endif
 

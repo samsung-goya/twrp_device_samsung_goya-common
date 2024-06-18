@@ -43,7 +43,7 @@ BOARD_HAS_NO_REAL_SDCARD := true
 
 # OTA
 BLOCK_BASED_OTA          := false
-TARGET_OTA_ASSERT_DEVICE := goyawifi,goyawifiue,goyawifixx,goyawifixxx,goyawifizc,goyawifizs,goyawifi,goya3g,goya3gxx,goya3gzc,goya3gdv,goya3gub
+TARGET_OTA_ASSERT_DEVICE := goyawifi,goyawifiue,goyawifixx,goyawifixxx,goyawifizc,goyawifizs,goyawifi
 
 # USB
 BOARD_UMS_LUNFILE := "/sys/class/android_usb/f_mass_storage/lun/file"

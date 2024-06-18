@@ -8,7 +8,3 @@
 add_lunch_combo omni_goyawifi-eng;
 add_lunch_combo omni_goyawifi-user;
 add_lunch_combo omni_goyawifi-userdebug;
-
-add_lunch_combo omni_goya3g-eng;
-add_lunch_combo omni_goya3g-user;
-add_lunch_combo omni_goya3g-userdebug;

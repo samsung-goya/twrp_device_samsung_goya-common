@@ -1,8 +1,8 @@
-# Device Tree for Samsung Galaxy Tab 3 Lite 7.0 (goya)
+# Device Tree for Samsung Galaxy Tab 3 Lite 7.0 (goyawifi)
 
 Copyright 2024, TeamWin Recovery Project
 
-The Samsung Galaxy Tab 3 Lite 7.0 (codenamed _"goya"_) is a budget tablet from Samsung.
+The Samsung Galaxy Tab 3 Lite 7.0 (codenamed _"goyawifi"_) is a budget tablet from Samsung.
 It was released in February 2014.
 
 |                   Basic | Spec Sheet                                            |

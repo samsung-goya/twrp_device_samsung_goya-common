@@ -29,7 +29,7 @@ jobs:
         mkdir ~/.bin
         curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
         python3 ~/.bin/repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-5.1
-        git clone --branch twrp-5.1 --single-branch https://github.com/samsung-goya/twrp_device_samsung_goya.git ~/TWRP/device/samsung/goya
+        git clone --branch twrp-5.1 --single-branch https://github.com/samsung-goya/twrp_device_samsung_goyawifi.git ~/TWRP/device/samsung/goya
         python3 ~/.bin/repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
 
     - name: Building TWRP
@@ -40,17 +40,9 @@ jobs:
         export LC_ALL=C
         lunch omni_goyawifi-eng
         make -j$(nproc --all) recoveryimage
-        lunch omni_goya3g-eng
-        make -j$(nproc --all) recoveryimage
 
-    - name: Uploading TWRP goyawifi builds
+    - name: Uploading TWRP builds
       uses: actions/upload-artifact@v2
       with:
         name: twrp_goyawifi
         path: /home/runner/TWRP/out/target/product/goyawifi/recovery.*
-    
-    - name: Uploading TWRP goya3g builds
-      uses: actions/upload-artifact@v2
-      with:
-        name: twrp_goya3g
-        path: /home/runner/TWRP/out/target/product/goya3g/recovery.*
