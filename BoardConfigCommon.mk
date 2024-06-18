@@ -1,3 +1,5 @@
+COMMON_PATH = $(COMMON_PATH)-common
+
 # Platform
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -14,7 +16,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
 # Kernel
-TARGET_PREBUILT_KERNEL := device/samsung/goya/prebuilt/zImage
+TARGET_PREBUILT_KERNEL := $(COMMON_PATH)/prebuilt/zImage
 BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive androidboot.hardware=pxa988
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_OFFSET := 0x00008000
@@ -25,7 +27,7 @@ BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000
 BOARD_MKBOOTIMG_ARGS += --ramdisk_offset 0x01000000
 BOARD_MKBOOTIMG_ARGS += --tags_offset 0x00000100
 BOARD_MKBOOTIMG_ARGS += --cmdline "androidboot.selinux=permissive androidboot.hardware=pxa988"
-BOARD_CUSTOM_BOOTIMG_MK := device/samsung/goya/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := $(COMMON_PATH)/mkbootimg.mk
 BOARD_KERNEL_PAGESIZE  := 2048
 
 
@@ -42,15 +44,15 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_REAL_SDCARD := true
 
 # OTA
-BLOCK_BASED_OTA          := false
+BLOCK_BASED_OTA := false
 TARGET_OTA_ASSERT_DEVICE := goyawifi,goyawifiue,goyawifixx,goyawifixxx,goyawifizc,goyawifizs,goyawifi
 
 # USB
 BOARD_UMS_LUNFILE := "/sys/class/android_usb/f_mass_storage/lun/file"
-TW_MTP_DEVICE     := "/dev/usb_mtp_gadget"
+TW_MTP_DEVICE := "/dev/usb_mtp_gadget"
 
 # TWRP
-TARGET_RECOVERY_FSTAB := device/samsung/goya/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/recovery.fstab
 RECOVERY_FSTAB_VERSION := 2
 RECOVERY_SDCARD_ON_DATA := false
 TW_INTERNAL_STORAGE_PATH := "/sdcard"
